@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
+import {composeWithDevTools} from 'redux-devtools-extension'
 
 // eslint-disable-next-line import/order
 import rootReducer from './store/reducers'
@@ -11,7 +12,11 @@ import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
-const store = createStore(rootReducer)
+const composeEnhancers = composeWithDevTools({
+  // Specify name here, actionsBlacklist, actionsCreators and other options if needed
+})
+
+const store = createStore(rootReducer, composeEnhancers())
 
 const app = (
   <Provider store={store}>
