@@ -1,0 +1,45 @@
+{
+  "name": "Easyboarding",
+  "description": "An application that helps onboard team members see the big picture of projects.",
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoogleCloudPlatform/nodejs-docs-samples.git"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "deploy": "gcloud app deploy",
+    "start": "node app.js",
+    "system-test": "repo-tools test app",
+    "test": "npm run system-test",
+    "e2e-test": "repo-tools test deploy"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "http-errors": "^1.7.2"
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "^3.0.0",
+    "eslint": "^5.15.3",
+    "eslint-config": "^0.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-kensho": "^10.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "flow-bin": "^0.95.1",
+    "nodemon": "^1.18.10",
+    "prettier": "^1.16.4"
+  },
+  "cloud-repo-tools": {
+    "test": {
+      "app": {
+        "msg": "Hello, world!"
+      }
+    },
+    "requiresKeyFile": true,
+    "requiresProjectId": true
+  }
+}
