@@ -9,8 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // eslint-disable-next-line import/order
 import rootReducer from './store/reducers'
 
-import './index.css'
 import App from './App'
+import './index.css'
 import * as serviceWorker from './serviceWorker'
 
 const composeEnhancers = composeWithDevTools({
