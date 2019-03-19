@@ -4,6 +4,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 // eslint-disable-next-line import/order
 import rootReducer from './store/reducers'
