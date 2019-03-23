@@ -1,5 +1,4 @@
-/* eslint-disable import/order */
-/* eslint-disable no-console */
+/* eslint-disable import/order, no-console */
 const express = require('express')
 const bodyParser = require('body-parser')
 const {ApolloServer} = require('apollo-server-express')
@@ -28,7 +27,7 @@ const server = new ApolloServer({
   resolvers,
 })
 
-// Index route
+// index route
 app.get('/', (req, res) => {
   res.render('index.html')
 })
@@ -37,11 +36,11 @@ app.get('/', (req, res) => {
 app.use('/api/v1/user', userRouter)
 
 // Apply middleware before 404,
-// so it catches the graphql routes
-// first
+// so it catches the graphql routes first
 server.applyMiddleware({app})
 
 // catch 404 and just render client side
+// client side should handle 404 problems
 app.use((req, res, next) => {
   res.render('index.html')
 })
