@@ -49,6 +49,10 @@ app.use((req, res, next) => {
 const PORT = process.env.PORT || 8080
 
 app.listen({port: PORT}, () => {
-  console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`)
+  console.log(`
+  🚀  Apollo Server ready at http://localhost:${PORT}${server.graphqlPath}
+  🗺  API routes ready at: http://localhost:${PORT}/api/v1/[api_name]
+  🔨  Built version of project at: http://localhost:${PORT}
+`)
   console.log('Press Ctrl+C to quit.')
 })
