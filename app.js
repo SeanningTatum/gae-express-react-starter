@@ -4,8 +4,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const {ApolloServer} = require('apollo-server-express')
 
-const {typeDefs} = require('./schema/typeDefs')
-const {resolvers} = require('./schema/resolvers')
+const typeDefs = require('./schema/typeDefs')
+const resolvers = require('./schema/resolvers')
 
 const app = express()
 
