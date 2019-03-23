@@ -15,8 +15,10 @@
     "e2e-test": "repo-tools test deploy"
   },
   "dependencies": {
+    "apollo-server-express": "^2.4.8",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "graphql": "^14.1.1",
     "http-errors": "^1.7.2"
   },
   "devDependencies": {

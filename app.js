@@ -1,12 +1,17 @@
+/* eslint-disable import/order */
 /* eslint-disable no-console */
 const express = require('express')
 const bodyParser = require('body-parser')
+const {ApolloServer} = require('apollo-server-express')
+
+const {typeDefs} = require('./schema/typeDefs')
+const {resolvers} = require('./schema/resolvers')
 
 const app = express()
 
 const userRouter = require('./routes/user')
 
-// import so the server can
+// So the server can
 // render the build version of react
 app.use(express.static(`${__dirname}/client/build`))
 
@@ -18,6 +23,11 @@ app.use(
   })
 )
 
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+})
+
 // Index route
 app.get('/', (req, res) => {
   res.render('index.html')
@@ -26,6 +36,11 @@ app.get('/', (req, res) => {
 // API routes
 app.use('/api/v1/user', userRouter)
 
+// Apply middleware before 404,
+// so it catches the graphql routes
+// first
+server.applyMiddleware({app})
+
 // catch 404 and just render client side
 app.use((req, res, next) => {
   res.render('index.html')
@@ -33,7 +48,7 @@ app.use((req, res, next) => {
 
 const PORT = process.env.PORT || 8080
 
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`)
+app.listen({port: PORT}, () => {
+  console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`)
   console.log('Press Ctrl+C to quit.')
 })
