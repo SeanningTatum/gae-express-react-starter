@@ -1,17 +1,14 @@
 {
-  "name": "Easyboarding",
-  "description": "An application that helps onboard team members see the big picture of projects.",
+  "name": "itinerary-server",
+  "description": "Itinerary app",
   "version": "0.0.1",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/GoogleCloudPlatform/nodejs-docs-samples.git"
-  },
   "engines": {
     "node": ">=8"
   },
   "scripts": {
-    "deploy": "gcloud app deploy",
+    "deploy-dev": "gcloud config set project wanderoo && gcloud app deploy",
+    "deploy-staging": "gcloud config set project wanderoo-staging && gcloud app deploy",
     "start": "node app.js",
     "system-test": "repo-tools test app",
     "test": "npm run system-test",
